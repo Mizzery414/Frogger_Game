@@ -9,6 +9,7 @@ const carsRight = document.querySelectorAll(".car-right");
 
 let currentIndex = 76; //starting block index is 76
 let width = 9; // nine squares from css setting
+let timerId = null;
 
 function moveFrog(e) {
   squares[currentIndex].classList.remove("frog");
@@ -42,6 +43,7 @@ function autoMoveElements() {
   logsRight.forEach((logRight) => moveLogRight(logRight));
   carsLeft.forEach((carLeft) => moveCarLeft(carLeft));
   carsRight.forEach((carRight) => moveCarRight(carRight));
+  lose();
 }
 
 //move the logs
@@ -127,4 +129,18 @@ function moveCarRight(carRight) {
       break;
   }
 }
-setInterval(autoMoveElements, 1000);
+//is it safe to move through
+function lose() {
+  if (
+    squares[currentIndex].classList.contains("c1") ||
+    squares[currentIndex].classList.contains("l4") ||
+    squares[currentIndex].classList.contains("l5")
+  ) {
+    resultDisplay.textContent = "You Lose!";
+    clearInterval(timerId);
+    squares[currentIndex].classList.remove("frog");
+    document.removeEventListener("keyup", moveFrog);
+  }
+}
+
+timerId = setInterval(autoMoveElements, 1000);
