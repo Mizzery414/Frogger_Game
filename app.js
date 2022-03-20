@@ -2,6 +2,7 @@ const timeLeftDisplay = document.querySelector("time-left");
 const resultDisplay = document.querySelector("#result");
 const startPauseButton = document.querySelector("#start-pause-button");
 const squares = document.querySelectorAll(".grid div");
+const logsLeft = document.querySelectorAll(".log-left");
 
 let currentIndex = 76; //starting block index is 76
 let width = 9; // nine squares from css setting
@@ -32,3 +33,14 @@ function moveFrog(e) {
 }
 
 document.addEventListener("keyup", moveFrog);
+
+function autoMoveLogs() {
+  logsLeft.forEach((logLeft) => moveLogLeft(logLeft));
+}
+
+//move the logs
+function moveLogLeft(logLeft) {
+  switch (true) {
+    case logLeft.classList.contains("l1"):
+  }
+}
