@@ -40,8 +40,8 @@ document.addEventListener("keyup", moveFrog);
 function autoMoveElements() {
   logsLeft.forEach((logLeft) => moveLogLeft(logLeft));
   logsRight.forEach((logRight) => moveLogRight(logRight));
-  carsLeft.forEach((carLeft) => moveCarsLeft(carLeft));
-  carsRight.forEach((carRight) => moveCarsRight(carRight));
+  carsLeft.forEach((carLeft) => moveCarLeft(carLeft));
+  carsRight.forEach((carRight) => moveCarRight(carRight));
 }
 
 //move the logs
@@ -95,7 +95,7 @@ function moveLogRight(logRight) {
 }
 
 //move the cars
-function moveCarsLeft(carLeft) {
+function moveCarLeft(carLeft) {
   switch (true) {
     case carLeft.classList.contains("c1"):
       carLeft.classList.remove("c1");
@@ -111,19 +111,19 @@ function moveCarsLeft(carLeft) {
       break;
   }
 }
-function moveCarsRight(carRight) {
+function moveCarRight(carRight) {
   switch (true) {
     case carRight.classList.contains("c1"):
       carRight.classList.remove("c1");
       carRight.classList.add("c3");
       break;
-    case carRight.classList.contains("c3"):
-      carRight.classList.remove("c3");
-      carRight.classList.add("c2");
-      break;
     case carRight.classList.contains("c2"):
       carRight.classList.remove("c2");
       carRight.classList.add("c1");
+      break;
+    case carRight.classList.contains("c3"):
+      carRight.classList.remove("c3");
+      carRight.classList.add("c2");
       break;
   }
 }
