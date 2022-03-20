@@ -7,6 +7,7 @@ let currentIndex = 76; //starting block index is 76
 let width = 9; // nine squares from css setting
 
 function moveFrog(e) {
+  squares[currentIndex].classList.remove("frog");
   switch (e.key) {
     case "ArrowLeft":
       console.log("move left");
