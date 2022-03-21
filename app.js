@@ -6,6 +6,7 @@ const logsLeft = document.querySelectorAll(".log-left");
 const logsRight = document.querySelectorAll(".log-right");
 const carsLeft = document.querySelectorAll(".car-left");
 const carsRight = document.querySelectorAll(".car-right");
+const replayBtn = document.querySelector("#replay-button");
 
 let currentIndex = 76; //starting block index is 76
 let width = 9; // nine squares from css setting
@@ -174,4 +175,10 @@ startPauseButton.addEventListener("click", () => {
     outcomeTimerId = setInterval(checkOutcomes, 50);
     document.addEventListener("keyup", moveFrog);
   }
+});
+
+// reset the game
+document.querySelector("#replay-button").addEventListener("click", () => {
+  window.location.reload();
+  return false;
 });

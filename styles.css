@@ -43,7 +43,8 @@
   background-color: green;
 }
 
-#start-pause-button {
+#start-pause-button,
+#replay-button {
   padding: 4px;
   margin: 4px;
   border-radius: 20px;
