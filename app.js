@@ -10,6 +10,7 @@ const carsRight = document.querySelectorAll(".car-right");
 let currentIndex = 76; //starting block index is 76
 let width = 9; // nine squares from css setting
 let timerId = null;
+let currentTime = 5;
 
 function moveFrog(e) {
   squares[currentIndex].classList.remove("frog");
