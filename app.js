@@ -1,4 +1,4 @@
-const timeLeftDisplay = document.querySelector("time-left");
+const timeLeftDisplay = document.querySelector("#time-left");
 const resultDisplay = document.querySelector("#result");
 const startPauseButton = document.querySelector("#start-pause-button");
 const squares = document.querySelectorAll(".grid div");
@@ -10,7 +10,7 @@ const carsRight = document.querySelectorAll(".car-right");
 let currentIndex = 76; //starting block index is 76
 let width = 9; // nine squares from css setting
 let timerId = null;
-let currentTime = 5;
+let currentTime = 20;
 
 function moveFrog(e) {
   squares[currentIndex].classList.remove("frog");
@@ -33,13 +33,14 @@ function moveFrog(e) {
       if (currentIndex + width < width * width) currentIndex += width;
       break;
   }
-
   squares[currentIndex].classList.add("frog");
 }
 
 document.addEventListener("keyup", moveFrog);
 
 function autoMoveElements() {
+  currentTime--;
+  timeLeftDisplay.textContent = currentTime;
   logsLeft.forEach((logLeft) => moveLogLeft(logLeft));
   logsRight.forEach((logRight) => moveLogRight(logRight));
   carsLeft.forEach((carLeft) => moveCarLeft(carLeft));
@@ -136,7 +137,8 @@ function lose() {
   if (
     squares[currentIndex].classList.contains("c1") ||
     squares[currentIndex].classList.contains("l4") ||
-    squares[currentIndex].classList.contains("l5")
+    squares[currentIndex].classList.contains("l5") ||
+    currentTime <= 0
   ) {
     resultDisplay.textContent = "You Lose!";
     clearInterval(timerId);
