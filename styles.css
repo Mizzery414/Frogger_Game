@@ -27,7 +27,7 @@
 
 .l4,
 .l5 {
-  background-color: lightblue;
+  background-color: #add8e6;
 }
 
 .c1 {
@@ -41,4 +41,11 @@
 
 .frog {
   background-color: green;
+}
+
+#start-pause-button {
+  padding: 4px;
+  margin: 4px;
+  border-radius: 20px;
+  background-color: #02beef;
 }
